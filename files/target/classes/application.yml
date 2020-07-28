@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/userfiles
+    username: root
+    password: 200088lx
+  application:
+    name: files
+  thymeleaf:
+    cache: false
+    suffix: .html
+    encoding: utf-8
+    prefix: classpath:/templates
+  resources:
+    static-locations: classpath:/templates ,classpath:/static
+server:
+  servlet:
+    context-path: /files
+  port: 8989
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  type-aliases-package: world.lixiang.entity
+
+logging:
+  level:
+    root: info
+    com.lixiang.dao: debug
+

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="world.lixiang.dao.UserFilesMapper">
+    <insert id="addUserFiles" parameterType="UserFiles" useGeneratedKeys="true" keyProperty="id">
+        insert into t_files values (#{id},#{oldFileName},#{newFileName},#{ext},#{path},#{size},#{type},#{isimg},#{downcounts},#{uploadTime},#{userId})
+    </insert>
+    <update id="update" parameterType="UserFiles">
+        update t_files set downcounts = #{downcounts} where id = #{id}
+    </update>
+    <delete id="delete" parameterType="String">
+        delete from t_files where id = #{id}
+    </delete>
+
+
+    <select id="findAllById" resultType="UserFiles" parameterType="Integer">
+        select * from t_files where userId = #{id}
+    </select>
+    <select id="findById" resultType="UserFiles">
+        select * from t_files where id = #{id}
+    </select>
+</mapper>
